@@ -27,6 +27,7 @@ const HomeScreen = () => {
   return (
     <div>
       <h1>ESPACIO DE TRABAJO</h1>
+      <Link to={"/new"}>Crear workspace</Link>
       <div>
         {loading ? (
           <h2>Cargando...</h2>

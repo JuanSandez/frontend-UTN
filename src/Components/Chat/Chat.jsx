@@ -1,7 +1,8 @@
 import { use, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { getAllMessagesByChannelId } from "../../services/messagesService";
+import { createNewMessage, getAllMessagesByChannelId } from "../../services/messagesService";
 import useCustomQuery from "../../hooks/useCustomQuery";
+import useForm from "../../hooks/useForms";
 
 const Chat = () => {
     const {channel_id, workspace_id} = useParams();
@@ -9,6 +10,17 @@ const Chat = () => {
     useEffect(() => {
         sendRequest(async () => getAllMessagesByChannelId({channel_id, workspace_id}));
     }, [channel_id]);
+    const initial_state_form = {
+        content: ""
+    }
+    const handleSubmitNewMessage = () => {
+        sendRequest(
+            async () => createNewMessage({channel_id, workspace_id, content: form_state.content}));
+    }
+    const {form_state, handleSubmit, handleChange} = useForm({
+        onSubmit:  handleSubmitNewMessage,
+        initial_form_state: initial_state_form
+    })
     console.log(server_messages_response);
     if(loading && !server_messages_response){return <span>Loading...</span>}
     return (
@@ -22,7 +34,13 @@ const Chat = () => {
                     </div> 
                     )
             }
-            Chat
+            <form onSubmit={handleSubmit}>
+                <div>
+                    <label htmlFor="content"></label>
+                    <textarea name="content" id="content" onChange={handleChange} value={form_state.content}></textarea>
+                </div>
+                    <button type="submit">Enviar mensaje</button>
+            </form>
         </div>
     )
 }
