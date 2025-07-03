@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAllWorkspaces } from "../../services/workspacesService";
 import { Link } from "react-router-dom";
-
-
+import "./HomeScreen.css";
 
 const HomeScreen = () => {
   const [response, setResponse] = useState([]);
@@ -11,7 +10,7 @@ const HomeScreen = () => {
     try {
       setLoading(true);
       const data = await getAllWorkspaces();
-      console.log("DATA:", data);
+
       setResponse(data);
     } catch (error) {
       console.error("Error al obtener workspaces", error);
@@ -22,27 +21,31 @@ const HomeScreen = () => {
   useEffect(() => {
     getWorkspaces();
   }, []);
-  console.log({ loading, response });
 
   return (
-    <div>
-      <h1>ESPACIO DE TRABAJO</h1>
-      <Link to={"/new"}>Crear workspace</Link>
-      <div>
+    <div className="workspace-container">
+      <div className="workspace-header">
+        <h1>ESPACIO DE TRABAJO</h1>
+        <Link className="create-button" to="/new">
+          Crear workspace
+        </Link>
+      </div>
+
+      <div className="workspace-list">
         {loading ? (
           <h2>Cargando...</h2>
         ) : (
-          <div>
-            {response.data.workspaces.map(
-              (element) => {
-              return (
-                <div key={element.workspace._id}>
-                  <h2>{element.workspace.name}</h2>
-                  <Link to={"/workspaces/" + element.workspace._id}> Ir a workspace</Link>
-                </div>
-              );
-            })}
-          </div>
+          response.data.workspaces.map((element) => (
+            <div key={element.workspace._id} className="workspace-card">
+              <h2>{element.workspace.name}</h2>
+              <Link
+                className="workspace-link"
+                to={`/workspaces/${element.workspace._id}`}
+              >
+                Ir a workspace
+              </Link>
+            </div>
+          ))
         )}
       </div>
     </div>

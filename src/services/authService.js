@@ -24,9 +24,9 @@ export const login = async ({ email, password }) => {
       message: "Ocurrió un error al comunicarnos con el servidor",
     };
   }
-}
+};
 
-export const register = async ({email, password, name}) => {
+export const register = async ({ email, password, name }) => {
   try {
     const server_response_http = await fetch(
       `${ENVIRONMENT.VITE_URL_API}/api/users/register`,
@@ -38,12 +38,11 @@ export const register = async ({email, password, name}) => {
         body: JSON.stringify({
           email: email,
           password: password,
-          name: name
+          name: name,
         }),
-        
       }
     );
-    console.log({ email, password, name })
+    console.log({ email, password, name });
     const server_response_data = await server_response_http.json();
     return server_response_data;
   } catch (error) {
@@ -52,4 +51,4 @@ export const register = async ({email, password, name}) => {
       message: "Ocurrió un error al comunicarnos con el servidor",
     };
   }
-}
+};

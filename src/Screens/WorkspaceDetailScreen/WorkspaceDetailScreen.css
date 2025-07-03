@@ -1,0 +1,73 @@
+.workspace-layout {
+  display: flex;
+  height: calc(100vh - 60px); 
+}
+
+.sidebar {
+  width: 250px;
+  background-color: #111;
+  padding: 1rem;
+  border-right: 1px solid #333;
+  color: #facc15;
+}
+
+.main-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background-color: #1e1e1e;
+  color: #facc15;
+  padding: 1rem;
+}
+
+.workspace-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #333;
+}
+
+.channel-form {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.channel-form input {
+  padding: 0.5rem;
+  background-color: #2c2c2c;
+  color: #fef9c3;
+  border: 1px solid #444;
+  border-radius: 5px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.channel-form button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.channel-form button[type="submit"] {
+  background-color: #4caf50;
+  color: white;
+}
+
+.channel-form button[type="button"] {
+  background-color: #e74c3c;
+  color: white;
+}
+.workspace-header button{
+  background-color: #4caf50;
+  color: white;
+}
