@@ -14,6 +14,8 @@ export const login = async ({ email, password }) => {
           email: email,
           password: password,
         }),
+        credentials: "include",
+
       }
     );
     const server_response_data = await server_response_http.json();
