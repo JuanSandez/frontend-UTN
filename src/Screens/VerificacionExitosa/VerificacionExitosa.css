@@ -29,13 +29,13 @@
 }
 
 .verificacion-exitosa a {
-  color: #66b2ff;
+  color: white;
   
 }
 
 .boton-login{
   background-color: #4caf50;
-  color: white;
+  
   text-decoration: none;
   font-size: 1.2rem;
 
