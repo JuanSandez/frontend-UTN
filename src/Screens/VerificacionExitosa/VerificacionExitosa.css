@@ -38,6 +38,12 @@
   color: white;
   text-decoration: none;
   font-size: 1.2rem;
+
+
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
 .verificacion-exitosa a:hover {
