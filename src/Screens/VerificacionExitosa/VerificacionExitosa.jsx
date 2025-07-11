@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import "./VerificacionExitosa.css";
 
 const VerificacionExitosa = () => (
   <div className="verificacion-exitosa">
