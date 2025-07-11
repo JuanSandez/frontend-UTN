@@ -1,11 +1,17 @@
 .verificacion-exitosa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
   text-align: center;
-  margin-top: 5rem;
   color: #ffffff;
   background-color: #000;
+
   min-height: 100vh;
   padding: 2rem;
 }
+
 
 .verificacion-exitosa h1 {
   font-size: 6rem;
@@ -24,6 +30,12 @@
 
 .verificacion-exitosa a {
   color: #66b2ff;
+  
+}
+
+.boton-login{
+  background-color: #4caf50;
+  color: white;
   text-decoration: none;
   font-size: 1.2rem;
 }
