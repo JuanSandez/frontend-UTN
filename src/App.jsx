@@ -10,6 +10,7 @@ import "./App.css";
 import Navbar from "./Components/Navbar/Navbar";
 import { logout } from "./utils/LogoutScreen";
 import NotFound from "./Screens/NotFound/NotFound";
+import VerificacionExitosa from "./Screens/VerificacionExitosa/VerificacionExitosa";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
         <Route path="/" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
         <Route path="/login" element={<LoginScreen />} />
+        <Route path="/verificacion-exitosa" element={<VerificacionExitosa />} />
         <Route path="*" element={<NotFound />} />
 
         <Route element={<AuthProtectRoute />}>

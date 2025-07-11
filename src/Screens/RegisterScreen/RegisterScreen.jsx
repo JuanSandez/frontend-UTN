@@ -21,11 +21,18 @@ const RegisterScreen = () => {
         password: form_state[REGISTER_FIELD_NAMES.PASSWORD],
       });
 
+      
+
+
       if (server_response_data.ok) {
-        navigate("/login");
-      } else {
-        setError(server_response_data.message);
-      }
+      setError(null);
+      alert(" Registro exitoso!. Revisá tu email para verificar tu cuenta.");
+      navigate("/login");
+    } else {
+      setError(server_response_data.message);
+    }
+
+
     } catch (error) {
       console.log(error);
       setError("Ocurrio un error al comunicarnos con el servidor");
